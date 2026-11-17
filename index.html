@@ -205,15 +205,9 @@ body.touch #msgs{top:22%}
 #kgName:focus{outline:2px solid #f0c56a}
 #kg-profile small{color:#aeb1ac;font-size:10px;letter-spacing:0}
 #kg-coords{position:absolute;top:75px;right:18px;z-index:10;background:rgba(4,12,16,.78);border:1px solid #f0c56a77;padding:8px 11px;color:#f2dec1;border-radius:5px;font-size:12px;text-shadow:0 1px 2px #000;text-align:right;line-height:1.5;pointer-events:none;min-width:160px}
-#kg-online-hud{position:fixed;top:125px;right:12px;z-index:15;display:flex;align-items:center;gap:6px;max-width:calc(100vw - 24px);flex-wrap:wrap;justify-content:flex-end}
-#kg-online-hud.hid,#kg-chat.hid{display:none!important}
-#kg-online-status{background:#081118ec;border:1px solid rgba(240,197,106,.5);padding:7px;border-radius:4px;font-size:11px;color:#e7d9bd;letter-spacing:.3px}
-#kg-online-hud button,#kg-chat button{font-size:12px;color:#f8ecd7;padding:7px 10px;border:1px solid #f0c56a88;border-radius:4px;background:#162023eb;cursor:pointer}
-#kg-chat{position:fixed;top:174px;right:12px;z-index:19;width:min(320px,calc(100vw - 24px));background:#091218f5;padding:10px;border:1px solid #f0c56a88;border-radius:5px;color:#e6decf;box-shadow:0 12px 35px #0009}
-#kg-chat-log{height:165px;overflow:auto;font-size:12px;line-height:1.4;white-space:pre-wrap;overflow-wrap:anywhere;margin-bottom:8px}
-#kg-chat-log>div{padding:3px 0;border-bottom:1px solid #ffffff18}
-#kg-chat form{display:flex;gap:5px}
-#kg-chat input{flex:1;min-width:50px;background:#151f22;color:white;border:1px solid #ffffff66;border-radius:4px;font-size:13px;padding:7px}
+#kg-online-hud{position:fixed;top:125px;right:12px;z-index:15;display:flex;align-items:center;max-width:190px;pointer-events:none}
+#kg-online-hud.hid{display:none!important}
+#kg-online-status{display:block;background:rgba(8,17,24,.93);border:1px solid rgba(240,197,106,.7);padding:7px 9px;border-radius:6px;font-size:11px;color:#ffe7ae;letter-spacing:.2px;text-shadow:0 1px 3px #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #kg-netbox{margin-top:10px;border:1px solid rgba(240,197,106,.4);padding:10px;background:rgba(1,8,12,.84);border-radius:4px}
 #kg-netbox label{font-size:11px;color:#f0c56a;letter-spacing:1px}
 #kg-netbox input{display:block;width:100%;background:#071116;color:#fff;border:1px solid #cfa868;padding:9px;border-radius:3px;margin:8px 0;font-size:15px;text-transform:uppercase;letter-spacing:3px}
@@ -222,8 +216,37 @@ body.touch #msgs{top:22%}
 #kg-netbox .netbuttons button:hover{background:#6d3a23}
 #kg-netbox small{display:block;margin-top:8px;color:#c9c9c2;line-height:1.5;font-size:11px;letter-spacing:normal}
 #kg-netstate{color:#f1cc87;word-break:break-word}
-@media (max-width:700px){#kg-coords{top:43px;right:8px;font-size:10px;padding:5px 7px;min-width:132px}#kg-online-hud{top:100px;right:7px}#kg-chat{top:145px;right:7px}#kg-profile{margin-bottom:7px}#kgName{width:190px}#title{padding-bottom:5vh}#tmenu button{padding:7px 12px;font-size:13px}#tsub{left:7vw;bottom:5vh;width:86vw;max-height:55vh;z-index:7}#kg-profile small{display:none}}
-@media (max-height:550px){#title{padding-bottom:2vh}#kg-profile{margin-bottom:3px}#tmenu button{padding:5px 10px}#kg-online-hud{top:70px}}
+@media (max-width:700px){#kg-coords{font-size:10px;padding:5px 7px;min-width:0;white-space:nowrap}#kg-online-hud{max-width:42vw}#kg-online-status{font-size:10px;padding:5px 6px}#kg-profile{margin-bottom:7px}#kgName{width:190px}#title{padding-bottom:5vh}#tmenu button{padding:7px 12px;font-size:13px}#tsub{left:7vw;bottom:5vh;width:86vw;max-height:55vh;z-index:7}#kg-profile small{display:none}}
+@media (max-height:550px){#title{padding-bottom:2vh}#kg-profile{margin-bottom:3px}#tmenu button{padding:5px 10px}}
+
+/* GloGeGo mobil: HUD köşeleri ve kalıcı, sürüklenebilir tuş düzeni */
+body.touch #clock{top:45px;right:8px;font-size:10px}
+body.touch #obj{top:51px;left:9px;max-width:41vw;font-size:10px}
+body.touch #bars{top:120px;left:9px}
+body.touch #status{top:208px;left:9px}
+body.touch #savedIc{top:65px;right:8px}
+body.touch #tcRow{top:82px}
+body.touch #kg-online-status{max-width:42vw}
+#kg-layout-overlay{position:fixed;inset:0;z-index:300;background:linear-gradient(135deg,#051014 0%,#1d2422 70%,#271a13 100%);color:#f2e5d0;display:flex;flex-direction:column;overflow:hidden;touch-action:none}
+#kg-layout-overlay .kg-layout-toolbar{flex:0 0 auto;background:#071217f5;border-bottom:1px solid #f0c56a55;padding:10px 12px;display:flex;flex-wrap:wrap;gap:9px;align-items:center;justify-content:space-between;z-index:2}
+#kg-layout-overlay .kg-layout-toolbar strong{color:#f0c56a;font-size:14px;letter-spacing:.6px}
+#kg-layout-overlay .kg-layout-toolbar p{font-size:11px;color:#d8c9b2;line-height:1.3;margin:2px 0 0}
+#kg-layout-overlay .kg-layout-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#kg-layout-overlay button{font:inherit;color:#f2e5d0;cursor:pointer;border-radius:5px;border:1px solid #f0c56a70;background:#283235;padding:7px 11px;font-size:12px}
+#kg-layout-overlay button:focus-visible{outline:3px solid #ffb66a}
+#kg-layout-overlay button.kg-primary{background:#d47b39;color:#130c06;font-weight:700}
+#kg-layout-overlay button.kg-danger{background:#381c1b}
+#kg-layout-overlay label{display:flex;align-items:center;gap:7px;font-size:12px}
+#kg-layout-overlay input[type=range]{accent-color:#f0c56a;width:100px;touch-action:auto}
+#kg-layout-overlay .kg-layout-canvas{flex:1;min-height:0;position:relative;border:1px dashed #e5b86d40;margin:10px;background:radial-gradient(circle at 20% 80%,#19302b,transparent 54%),radial-gradient(circle at 85% 25%,#41301f,transparent 38%);touch-action:none;overflow:hidden}
+#kg-layout-overlay .kg-layout-canvas::before{content:'MOBİL OYUN EKRANI ÖNİZLEMESİ';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(12px,3vw,25px);letter-spacing:3px;color:#ffffff1d;white-space:nowrap;pointer-events:none}
+#kg-layout-overlay .kg-layout-control{position:absolute;transform:translate(-50%,-50%);display:flex;justify-content:center;align-items:center;padding:3px;text-align:center;background:#16292edb;color:#fff0d3;border:2px solid #d6a76f;border-radius:9px;cursor:grab;touch-action:none;user-select:none;font-size:11px;line-height:1.05;box-shadow:0 4px 20px #0008;white-space:nowrap}
+#kg-layout-overlay .kg-layout-control[data-id=tcMove]{border-radius:50%;border-style:dashed;background:#22776744;color:#cef7e4}
+#kg-layout-overlay .kg-layout-control[data-id=kg-online-hud],#kg-layout-overlay .kg-layout-control[data-id=kg-coords]{background:#080f15f1}
+#kg-layout-overlay .kg-layout-control.active{border-color:#fff;background:#87502bd9;box-shadow:0 0 0 4px #f0c56a66;z-index:1;cursor:grabbing}
+#kg-layout-overlay .kg-layout-help{flex:none;padding:5px 12px 9px;font-size:11px;color:#c7c5bb;text-align:center}
+#tc .kg-layout-fixed{position:fixed!important;margin:0!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;touch-action:none}
+@media(max-height:480px){#kg-layout-overlay .kg-layout-toolbar{padding:6px 10px;gap:5px}#kg-layout-overlay .kg-layout-toolbar p{display:none}#kg-layout-overlay button{padding:5px 8px}#kg-layout-overlay .kg-layout-canvas{margin:4px}}
 </style>
 </head>
 <body>
@@ -238,8 +261,7 @@ body.touch #msgs{top:22%}
 <div id="banner"><h2></h2><p></p></div>
 <div id="overlay" class="hid"><div id="panel"></div></div>
 <div id="title" class=""><div id="logo"><h1>KÜLADRA</h1></div><div id="kg-profile"><label>OYUNCU ADI<input id="kgName" type="text" maxlength="18" autocomplete="nickname" placeholder="Adını yaz" aria-label="Oyuncu adı"></label><small>İsmini yaz, kaydın tarayıcıda saklansın.</small></div><div id="tmenu"><button id="t1">Devam Et</button><button id="t2">Yeni Oyun</button><button id="t3">Ayarlar</button></div><div id="tsub" class="hid"></div><div id="tver">GloGeGo ile yapıldı · KÜLADRA v1.0</div></div>
-<div id="kg-online-hud" class="hid"><span id="kg-online-status">ODA</span><button type="button" id="kg-chat-toggle">SOHBET</button><button type="button" id="kg-room-exit">ODADAN ÇIK</button></div>
-<div id="kg-chat" class="hid"><div id="kg-chat-log" aria-live="polite"></div><form id="kg-chat-form"><input type="text" id="kg-chat-input" maxlength="140" placeholder="Mesaj yaz..." aria-label="Oda sohbet mesajı"><button type="submit">GÖNDER</button></form></div>
+<div id="kg-online-hud" class="hid" aria-live="polite"><span id="kg-online-status">ODA</span></div>
 <div id="death" class="full hid"></div>
 <div id="ending" class="full hid"></div>
 <div id="fade"><p></p></div>
@@ -2421,19 +2443,125 @@ function renderRadio() {
   P.innerHTML = `<div class="menu"><h2>${esc(t('radioT'))}</h2>${rows}${foot}<p class="hint" style="text-align:center">E / Esc</p></div>`;
   P.querySelectorAll('.btn[data-p]').forEach(b => b.onclick = () => { installPart(b.dataset.p); renderRadio(); }); if ($('send')) $('send').onclick = () => { sendSignal(); renderRadio(); };
 }
+
+// ============================================================ ADJUSTABLE MOBILE BUTTONS
+// Settings are local to the current device and persist across game sessions.
+const KG_LAYOUT_KEY = 'kuladra_mobile_controls_v1';
+const KG_CONTROLS = [
+ ['tcMove','HAREKET'],['tcAtk','VUR'],['tcBlk','BLOK'],['tcJmp','ZIPLA'],['tcE','E / ETKİLEŞ'],
+ ['tcC','ÇÖMEL'],['tcQ','Q'],['tcBag','ÇANTA'],['tcMap','HARİTA'],['tcF','F'],['tcB','İNŞA'],
+ ['tcX','X'],['tcPrev','ÖNCEKİ'],['tcNext','SONRAKİ'],['tcR','DÖNDÜR'],
+ ['tcPause','DURAKLAT'],['kg-online-hud','ODA KODU'],['kg-coords','KOORDİNAT']
+];
+function kgLayoutDefaults() {
+ const w=window.innerWidth||800,h=window.innerHeight||450;
+ const portrait=w<600;
+ const ypx=n=>Math.min(94,Math.max(5,n/h*100));
+ const pos=(x,y,s=1)=>({x,y,s});
+ const yRow=ypx(h<500?88:110);
+ const yRow2=ypx(h<500?143:167);
+ const o={
+ tcMove:pos(23,72,1),tcAtk:pos(portrait?88:93,81,1),tcBlk:pos(76,90,1),tcJmp:pos(portrait?90:93,56,1),
+ tcE:pos(79,68,1),tcC:pos(65,80,1),tcQ:pos(67,59,1),
+ tcBag:pos(portrait?57:57,yRow,.85),tcMap:pos(portrait?73:66,yRow,.85),
+ tcF:pos(portrait?89:75,yRow,.85),tcB:pos(portrait?73:84,portrait?yRow2:yRow,.85),
+ tcX:pos(portrait?89:93,portrait?yRow2:yRow,.85),
+ tcPrev:pos(portrait?56:58,ypx(portrait?245:148),.85),tcNext:pos(portrait?72:68,ypx(portrait?245:148),.85),tcR:pos(portrait?88:78,ypx(portrait?245:148),.85),
+ tcPause:pos(50,ypx(38),1),
+ 'kg-online-hud':pos(portrait?18:14,ypx(20),.85),
+ 'kg-coords':pos(portrait?82:86,ypx(20),.85)
+ };
+ return o;
+}
+let KG_LAYOUT=(()=>{
+ try {const a=JSON.parse(localStorage.getItem(KG_LAYOUT_KEY)||'null');return a&&a.v===1&&a.data&&typeof a.data==='object'?a.data:kgLayoutDefaults();}
+ catch(e){return kgLayoutDefaults();}
+})();
+function kgPosition(k){const a=KG_LAYOUT[k],d=kgLayoutDefaults()[k];if(!a)return d;return {
+ x:clamp(Number(a.x)||d.x,4,96),y:clamp(Number(a.y)||d.y,4,96),s:clamp(Number(a.s)||d.s,.55,1.65)
+};}
+function kgActualSize(id,scale){
+ if(id==='tcMove')return [Math.round(Math.min(300,window.innerWidth*.43)*scale),Math.round(Math.min(330,window.innerHeight*.63)*scale)];
+ if(id==='kg-coords')return [Math.round(154*scale),Math.round(34*scale)];
+ if(id==='kg-online-hud')return [Math.round(158*scale),Math.round(32*scale)];
+ if(['tcBag','tcMap','tcF','tcB','tcX','tcPrev','tcNext','tcR'].includes(id))return [Math.round(54*scale),Math.round(40*scale)];
+ if(id==='tcAtk')return [Math.round(78*scale),Math.round(78*scale)];
+ return [Math.round(56*scale),Math.round(56*scale)];
+}
+function kgApplyLayout(){
+ KG_CONTROLS.forEach(([id])=>{
+  const el=$(id);if(!el)return;
+  const p=kgPosition(id),size=kgActualSize(id,p.s);
+  el.classList.add('kg-layout-fixed');
+  el.style.setProperty('position','fixed','important');
+  el.style.setProperty('left',p.x+'%','important');el.style.setProperty('top',p.y+'%','important');
+  el.style.setProperty('right','auto','important');el.style.setProperty('bottom','auto','important');
+  el.style.setProperty('transform','translate(-50%, -50%)','important');
+  el.style.setProperty('margin','0','important');
+  el.style.setProperty('width',size[0]+'px','important');el.style.setProperty('height',size[1]+'px','important');
+  if(id==='kg-coords'||id==='kg-online-hud'){
+   el.style.setProperty('font-size',Math.round(11*p.s)+'px','important');
+   if(id==='kg-online-hud'){el.style.setProperty('max-width',size[0]+'px','important');const text=$('kg-online-status');if(text){text.style.maxWidth=size[0]+'px';text.style.fontSize=Math.round(11*p.s)+'px';}}
+   else el.style.setProperty('min-width','0','important');
+  }else if(id==='tcMove'){el.style.setProperty('border-radius','50%','important');}
+  else el.style.setProperty('font-size',Math.max(9,Math.round(12*p.s))+'px','important');
+ });
+}
+let KG_LAYOUT_DIALOG=null;
+function kgOpenLayoutEditor(){
+ if(KG_LAYOUT_DIALOG)return;
+ const before=JSON.parse(JSON.stringify(KG_LAYOUT));
+ const root=document.createElement('div');root.id='kg-layout-overlay';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label','Mobil tuş düzeni');
+ root.innerHTML=`<div class="kg-layout-toolbar"><div><strong>📱 MOBİL TUŞ DÜZENİ</strong><p>Bir tuşa dokunup sürükle · Boyutu ayarla · Kaydet</p></div><div class="kg-layout-tools"><label id="kg-size-label">Boyut <input id="kg-layout-size" type="range" min="0.55" max="1.65" step="0.05" value="1"></label><button type="button" id="kg-layout-reset" class="kg-danger">SIFIRLA</button><button type="button" id="kg-layout-cancel">VAZGEÇ</button><button type="button" id="kg-layout-save" class="kg-primary">KAYDET</button></div></div><div class="kg-layout-canvas" id="kg-layout-canvas"></div><div class="kg-layout-help">Tüm tuşların konumu ve boyutu değişir. Oda kodu ile koordinatları da taşıyabilirsin. Hareket alanı bir sanal joystick bölgesidir.</div>`;
+ document.body.appendChild(root);KG_LAYOUT_DIALOG=root;
+ const board=root.querySelector('#kg-layout-canvas');let selected='tcAtk';let drag=null;
+ const itemMap=new Map();
+ function loc(el,id){const p=kgPosition(id);el.style.left=p.x+'%';el.style.top=p.y+'%';
+  let [w,h]=kgActualSize(id,p.s);if(id==='tcMove'){w=Math.min(w,128);h=Math.min(h,128)}
+  el.style.width=w+'px';el.style.height=h+'px';el.style.fontSize=Math.max(9,Math.round(10*p.s))+'px';}
+ KG_CONTROLS.forEach(([id,label])=>{
+  const el=document.createElement('button');el.type='button';el.className='kg-layout-control';el.dataset.id=id;el.textContent=label;
+  el.setAttribute('aria-label',label+' konumunu ayarla');board.appendChild(el);itemMap.set(id,el);loc(el,id);
+  el.addEventListener('pointerdown',e=>{e.preventDefault();e.stopPropagation();selected=id;updateSelected();
+    drag={id,pointerId:e.pointerId};el.setPointerCapture(e.pointerId);});
+  el.addEventListener('pointermove',e=>{if(!drag||drag.id!==id||drag.pointerId!==e.pointerId)return;
+    const r=board.getBoundingClientRect();if(!r.width||!r.height)return;
+    const p=kgPosition(id);p.x=clamp((e.clientX-r.left)/r.width*100,4,96);p.y=clamp((e.clientY-r.top)/r.height*100,4,96);
+    KG_LAYOUT[id]=p;loc(el,id);
+  });
+  const stop=e=>{if(drag&&drag.pointerId===e.pointerId)drag=null;};
+  el.addEventListener('pointerup',stop);el.addEventListener('pointercancel',stop);
+ });
+ const slider=root.querySelector('#kg-layout-size');
+ function updateSelected(){for(const [id,el] of itemMap)el.classList.toggle('active',id===selected);
+   slider.value=String(kgPosition(selected).s);
+   const label=KG_CONTROLS.find(([id])=>id===selected)?.[1]||'';
+   root.querySelector('#kg-size-label').firstChild.textContent=label+' / Boyut ';}
+ slider.addEventListener('input',()=>{const p=kgPosition(selected);p.s=Number(slider.value);KG_LAYOUT[selected]=p;loc(itemMap.get(selected),selected);});
+ function close(commit){if(!commit)KG_LAYOUT=before;else try{localStorage.setItem(KG_LAYOUT_KEY,JSON.stringify({v:1,data:KG_LAYOUT}));}catch(e){console.warn('Tuş düzeni kaydedilemedi',e);}
+  kgApplyLayout();root.remove();KG_LAYOUT_DIALOG=null;}
+ root.querySelector('#kg-layout-save').onclick=()=>close(true);
+ root.querySelector('#kg-layout-cancel').onclick=()=>close(false);
+ root.querySelector('#kg-layout-reset').onclick=()=>{KG_LAYOUT=kgLayoutDefaults();for(const [id,el] of itemMap)loc(el,id);updateSelected();};
+ root.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close(false);}});
+ window.addEventListener('resize',()=>{if(KG_LAYOUT_DIALOG===root){for(const [id,el] of itemMap)loc(el,id);}}, {once:true});
+ updateSelected();
+}
+
 // ------------------------------------------------------------ pause / settings
-function settingsHtml() { const seg = (k, opts) => `<div class="seg">${opts.map(o => `<button data-k="${k}" data-v="${o[0]}" class="${String(S[k]) === String(o[0]) ? 'on' : ''}">${esc(o[1])}</button>`).join('')}</div>`; return `<div class="set"><span>${t('quality')}</span>${seg('quality', [[0, t('q0')], [1, t('q1')], [2, t('q2')]])}</div><div class="set"><span>${t('autoq')}</span>${seg('autoQ', [[true, t('on')], [false, t('off')]])}</div><div class="set"><span>${t('sens')}</span><input type="range" min="0.3" max="2.5" step="0.1" value="${S.sens}" data-r="sens"></div><div class="set"><span>${t('vol')}</span><input type="range" min="0" max="1" step="0.05" value="${S.vol}" data-r="vol"></div><div class="set"><span>${t('lang')}</span>${seg('lang', [['tr', 'Türkçe'], ['en', 'English']])}</div><div class="set"><span>${t('fpsc')}</span>${seg('fps', [[true, t('on')], [false, t('off')]])}</div>`; }
+function settingsHtml() { const seg = (k, opts) => `<div class="seg">${opts.map(o => `<button data-k="${k}" data-v="${o[0]}" class="${String(S[k]) === String(o[0]) ? 'on' : ''}">${esc(o[1])}</button>`).join('')}</div>`; return `<div class="set"><span>${t('quality')}</span>${seg('quality', [[0, t('q0')], [1, t('q1')], [2, t('q2')]])}</div><div class="set"><span>${t('autoq')}</span>${seg('autoQ', [[true, t('on')], [false, t('off')]])}</div><div class="set"><span>${t('sens')}</span><input type="range" min="0.3" max="2.5" step="0.1" value="${S.sens}" data-r="sens"></div><div class="set"><span>${t('vol')}</span><input type="range" min="0" max="1" step="0.05" value="${S.vol}" data-r="vol"></div><div class="set"><span>${t('lang')}</span>${seg('lang', [['tr', 'Türkçe'], ['en', 'English']])}</div><div class="set"><span>${t('fpsc')}</span>${seg('fps', [[true, t('on')], [false, t('off')]])}</div><div class="set"><span>${S.lang === 'en' ? 'Mobile control layout' : 'Mobil tuş düzeni'}</span><button type="button" class="btn kg-layout-launch">${S.lang === 'en' ? 'EDIT BUTTONS' : 'TUŞLARI AYARLA'}</button></div>`; }
 function bindSettings(root, rerender) {
   root.querySelectorAll('.seg button').forEach(b => b.onclick = () => { const k = b.dataset.k; let v = b.dataset.v; if (k === 'quality') v = +v; else if (k !== 'lang') v = v === 'true'; S[k] = v; saveSettings(); sfx('ui'); if (k === 'quality') { applyQuality(); PERF.low = 0; } if (k === 'lang') applyLang(); $('fps').classList.toggle('hid', !S.fps); rerender(); });
   root.querySelectorAll('input[type=range]').forEach(r => r.oninput = () => { S[r.dataset.r] = +r.value; saveSettings(); setVol(); });
+  root.querySelectorAll('.kg-layout-launch').forEach(b => b.onclick=()=>kgOpenLayoutEditor());
 }
 function openPause() { if (G.mode !== 'play' || G.paused) return; G.paused = true; $('overlay').classList.remove('hid'); $('panel').className = 'small'; unlockPointer(); renderPause('main'); }
 function renderPause(view) {
   const P = $('panel');
   if (view === 'set') { P.innerHTML = `<div class="menu"><h2>${t('sett')}</h2>${settingsHtml()}<button class="btn" id="pb" style="margin-top:12px">${t('back')}</button></div>`; bindSettings(P, () => renderPause('set')); $('pb').onclick = () => renderPause('main'); return; }
   const can = canSaveHere();
-  P.innerHTML = `<div class="menu"><h2>${t('paused')}</h2><button class="btn" id="p1">${t('resume')}</button><button class="btn" id="p2" ${can ? '' : 'disabled'}>${t('save')}</button>${can ? '' : `<p class="hint" style="text-align:center;margin:0">${t('saveOnly')}</p>`}<button class="btn" id="p3">${t('sett')}</button><button class="btn" id="p4">${t('quit')}</button><p class="hint" style="text-align:center;line-height:1.6">${esc(t(IS_TOUCH ? 'ctrlsT' : 'ctrls'))}</p></div>`;
-  $('p1').onclick = resumeGame; $('p2').onclick = () => { if (saveGame()) renderPause('main'); }; $('p3').onclick = () => renderPause('set'); $('p4').onclick = () => { G.paused = false; $('overlay').classList.add('hid'); toTitle(); };
+  P.innerHTML = `<div class="menu"><h2>${t('paused')}</h2><button class="btn" id="p1">${t('resume')}</button><button class="btn" id="p2" ${can ? '' : 'disabled'}>${t('save')}</button>${can ? '' : `<p class="hint" style="text-align:center;margin:0">${t('saveOnly')}</p>`}<button class="btn" id="p3">${t('sett')}</button>${NET.active ? `<button class="btn" id="kg-leave-room">${S.lang === 'en' ? 'LEAVE ROOM' : 'ODADAN ÇIK'}</button>` : ''}<button class="btn" id="p4">${t('quit')}</button><p class="hint" style="text-align:center;line-height:1.6">${esc(t(IS_TOUCH ? 'ctrlsT' : 'ctrls'))}</p></div>`;
+  $('p1').onclick = resumeGame; $('p2').onclick = () => { if (saveGame()) renderPause('main'); }; $('p3').onclick = () => renderPause('set'); if($('kg-leave-room'))$('kg-leave-room').onclick=()=>{saveGame(false);G.paused=false;toTitle();}; $('p4').onclick = () => { G.paused = false; $('overlay').classList.add('hid'); toTitle(); };
 }
 function resumeGame() { G.paused = false; if (!G.overlay) $('overlay').classList.add('hid'); initAudio(); lockPointer(); }
 function canSaveHere() { return G.mode === 'play' && !player.dead; } // upgraded: saves work even deep in the forest
@@ -2452,11 +2580,11 @@ const FIREBASE_CONFIG = {
   measurementId: 'G-EY90695NZZ'
 };
 const NET = { app:null, db:null, uid:'', ready:null, active:false, room:'', nick:'',
-  roomRef:null, selfRef:null, playersRef:null, buildsRef:null, chatRef:null, chatQuery:null,
+  roomRef:null, selfRef:null, playersRef:null, buildsRef:null,
   stateRef:null, connRef:null, connected:false, others:{}, avatars:new Map(),
-  buildItems:{}, remoteApplying:false, chatRefs:[], lastSent:0, lastHeartbeat:0,
+  buildItems:{}, remoteApplying:false, lastSent:0, lastHeartbeat:0,
   lastCloud:0, msgIndex:0, tick:0, count:1, host:'', error:'', keys:[], cloudDone:false,
-  profile:'', connCb:null, peersCb:null, buildsCb:null, chatCb:null, stateCb:null,
+  profile:'', connCb:null, peersCb:null, buildsCb:null, stateCb:null,
   lastX:NaN, lastZ:NaN, lastYaw:NaN
 };
 const netPath = 'kuladra_v3';
@@ -2543,16 +2671,14 @@ async function netJoin(raw){
   NET.room=code;NET.roomRef=root;NET.active=true;NET.nick=nick;NET.connected=false;
   NET.lastX=NET.lastZ=NET.lastYaw=NaN;
   NET.selfRef=root.child('players/'+NET.uid);
-  NET.playersRef=root.child('players');NET.buildsRef=root.child('builds');NET.chatRef=root.child('chat');NET.stateRef=root.child('state');NET.connRef=NET.db.ref('.info/connected');
+  NET.playersRef=root.child('players');NET.buildsRef=root.child('builds');NET.stateRef=root.child('state');NET.connRef=NET.db.ref('.info/connected');
   NET.peersCb=s=>netReceivePlayers(s.val()||{});
   NET.buildsCb=s=>{NET.buildItems=s.val()||{};netApplyBuilds();};
-  NET.chatCb=s=>netShowChatMessage(s.val());
   NET.stateCb=s=>{const v=s.val();if(!v||!NET.active||G.mode!=='play'||NET.host===NET.uid)return;if(Number(v.ts||0)>Date.now()-65000){if(Number.isFinite(v.day))G.day=v.day;if(Number.isFinite(v.time))G.time=v.time;if(typeof v.weather==='string')G.weather=v.weather;}};
   NET.connCb=async s=>{if(!NET.active)return;NET.connected=!!s.val();if(NET.connected){try{await NET.selfRef.onDisconnect().remove();await NET.selfRef.set(netPacket());}catch(e){netStatus('Odaya yazılamıyor: '+(e.code||e.message),true);NET.connected=false;}}netRefreshHud();};
   // A room listener reads only the chosen room (not the whole database).
   NET.playersRef.on('value',NET.peersCb,e=>netStatus('Odaya erişim reddedildi: '+e.code,true));
   NET.buildsRef.on('value',NET.buildsCb,e=>netStatus('Yapılar okunamadı: '+e.code,true));
-  NET.chatQuery=NET.chatRef.limitToLast(20);NET.chatQuery.on('child_added',NET.chatCb,e=>console.warn('Sohbet:',e));
   NET.stateRef.on('value',NET.stateCb);
   NET.connRef.on('value',NET.connCb);
   lsSet('kuladra_last_room',code);
@@ -2613,15 +2739,15 @@ function netStep(dt){
 function netRefreshHud(){
  const box=$('kg-online-hud');if(!box)return;
  box.classList.toggle('hid',!NET.active);
- const text=$('kg-online-status');if(text)text.textContent=NET.active?'🌐 ODA '+NET.room+' · '+(NET.connected?'Bağlı':'Bağlanıyor')+' · '+NET.count+' kişi':'';
+ const text=$('kg-online-status');if(text)text.textContent=NET.active?(IS_TOUCH?'ODA '+NET.room+' · '+NET.count+' kişi':'🌐 ODA '+NET.room+' · '+(NET.connected?'Bağlı':'Bağlanıyor')+' · '+NET.count+' kişi'):'';
 }
 async function netLeave(){
  if(!NET.active){netRefreshHud();return;}
  NET.active=false;
- try{NET.connRef?.off('value',NET.connCb);NET.playersRef?.off('value',NET.peersCb);NET.buildsRef?.off('value',NET.buildsCb);NET.chatQuery?.off('child_added',NET.chatCb);NET.stateRef?.off('value',NET.stateCb);await NET.selfRef?.onDisconnect().cancel();await NET.selfRef?.remove();}catch(e){console.warn('Room cleanup:',e);}
+ try{NET.connRef?.off('value',NET.connCb);NET.playersRef?.off('value',NET.peersCb);NET.buildsRef?.off('value',NET.buildsCb);NET.stateRef?.off('value',NET.stateCb);await NET.selfRef?.onDisconnect().cancel();await NET.selfRef?.remove();}catch(e){console.warn('Room cleanup:',e);}
  for(const a of NET.avatars.values())if(scene)scene.remove(a.group);
- NET.avatars.clear();NET.others={};NET.room='';NET.count=1;NET.roomRef=null;NET.connected=false;NET.buildItems={};NET.host='';NET.chatQuery=null;
- if($('kg-chat'))$('kg-chat').classList.add('hid');if($('kg-chat-log'))$('kg-chat-log').textContent='';netRefreshHud();
+ NET.avatars.clear();NET.others={};NET.room='';NET.count=1;NET.roomRef=null;NET.connected=false;NET.buildItems={};NET.host='';
+ netRefreshHud();
 }
 function netPublishBuild(b){
  if(!NET.active||!NET.connected||!NET.buildsRef||!b)return;
@@ -2649,21 +2775,8 @@ function netApplyBuilds(){
   }
  }finally{NET.remoteApplying=false;}
 }
-function netShowChatMessage(m){
- if(!m||!m.name||!m.text)return;
- const log=$('kg-chat-log');if(!log)return;
- const row=document.createElement('div');
- const name=document.createElement('b');name.textContent=String(m.name).slice(0,18)+': ';
- row.append(name,document.createTextNode(String(m.text).slice(0,140)));log.append(row);
- while(log.children.length>30)log.firstChild.remove();log.scrollTop=log.scrollHeight;
-}
-(function(){
- $('kg-chat-toggle').onclick=()=>{$('kg-chat').classList.toggle('hid');if(!$('kg-chat').classList.contains('hid'))$('kg-chat-input').focus();};
- $('kg-room-exit').onclick=()=>{if(G.mode==='play')saveGame(false);toTitle();};
- $('kg-chat-form').addEventListener('submit',e=>{e.preventDefault();if(!NET.active||!NET.chatRef)return;const i=$('kg-chat-input');const text=i.value.trim().slice(0,140);if(!text)return;i.value='';NET.chatRef.push({uid:NET.uid,name:NET.nick,text,ts:firebase.database.ServerValue.TIMESTAMP}).catch(err=>netStatus('Sohbet mesajı gönderilemedi: '+err.code,true));});
- for(const ev of ['keydown','keyup','keypress'])$('kg-chat-input').addEventListener(ev,e=>e.stopPropagation());
- window.addEventListener('beforeunload',()=>{if(G.mode==='play')saveGame(false);});
-})();
+// Room exit moved into the in-game pause menu; chat has been removed.
+window.addEventListener('beforeunload',()=>{if(G.mode==='play')saveGame(false);});
 
 // ------------------------------------------------------------ title / death / ending
 function renderTitle(sub) {
@@ -2839,12 +2952,13 @@ boot().catch(e => { console.error(e); $('loadtxt').textContent = 'Hata: ' + e.me
     <button data-hold="KeyQ" id="tcQ" class="hid">Q</button>
   </div>
   <div id="tcRow">
-    <button data-tap="Tab">${L ? 'BAG' : 'ÇANTA'}</button><button data-tap="KeyM">${L ? 'MAP' : 'HARİTA'}</button><button data-tap="KeyF">F</button><button data-tap="KeyB">B</button><button data-hold="KeyX">X</button>
-    <button data-wheel="-1" class="bm hid">◀</button><button data-wheel="1" class="bm hid">▶</button><button data-tap="KeyR" class="bm hid">R</button>
+    <button id="tcBag" data-tap="Tab">${L ? 'BAG' : 'ÇANTA'}</button><button id="tcMap" data-tap="KeyM">${L ? 'MAP' : 'HARİTA'}</button><button id="tcF" data-tap="KeyF">F</button><button id="tcB" data-tap="KeyB">B</button><button id="tcX" data-hold="KeyX">X</button>
+    <button id="tcPrev" data-wheel="-1" class="bm hid">◀</button><button id="tcNext" data-wheel="1" class="bm hid">▶</button><button id="tcR" data-tap="KeyR" class="bm hid">R</button>
   </div>
   <button id="tcPause" aria-label="${L ? 'Pause' : 'Duraklat'}">II</button>
   <button id="tcClose" class="hid" aria-label="${L ? 'Close' : 'Kapat'}">✕</button>`;
   document.body.appendChild(root);
+  kgApplyLayout();
   const playing = () => G.mode === 'play' && !G.paused && !G.overlay && !player.dead;
   const press = (k, on) => {
     if (k === 'mouseL') { if (on) { if (!playing()) return; mouse.l = true; onMouseDown(0); } else { if (mouse.l) onMouseUp(0); mouse.l = false; } return; }
